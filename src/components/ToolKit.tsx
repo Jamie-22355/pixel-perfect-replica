@@ -22,7 +22,7 @@ export function Panel({ children, className = "" }: { children: ReactNode; class
 
 export function Disclaimer() {
   return (
-    <div className="flex gap-2 rounded-lg border border-dashed p-3 text-xs text-muted-foreground">
+    <div className="flex gap-2 rounded-lg border border-dashed bg-card p-3 text-xs text-muted-foreground">
       <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
       <p>AI-generated content may contain errors or omissions. Review, verify and edit all outputs before sharing or acting on them.</p>
     </div>
