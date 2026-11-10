@@ -28,7 +28,7 @@ function Meetings() {
           <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Paste meeting notes or a transcript…" className="min-h-96" />
           <div className="flex items-center justify-between">
             <span className="text-xs text-muted-foreground">{notes.length.toLocaleString()} characters</span>
-            <Button disabled={notes.trim().length < 20 || ai.loading} onClick={() => ai.generate(notes, notes.trim().split("\n")[0].slice(0, 60))}>
+            <Button disabled={notes.trim().length < 20 || ai.loading} onClick={() => ai.generate(notes, notes.trim().split("\n")[0]?.slice(0, 60) ?? "Meeting notes")}>
               <Sparkles className="h-4 w-4" /> Summarize
             </Button>
           </div>

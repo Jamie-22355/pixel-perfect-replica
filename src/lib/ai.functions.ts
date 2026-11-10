@@ -17,7 +17,7 @@ Use "- " bullet lines where appropriate. When only a topic is given, rely on wel
 } as const;
 
 export const getAIStatus = createServerFn({ method: "GET" }).handler(async () => {
-  return { configured: Boolean(process.env.LOVABLE_API_KEY) };
+  return { configured: Boolean(process.env["LOVABLE_API_KEY"]) };
 });
 
 async function fetchUrlText(url: string): Promise<string> {
@@ -49,7 +49,7 @@ export const runAI = createServerFn({ method: "POST" })
       .parse(d),
   )
   .handler(async ({ data }): Promise<AIResult> => {
-    if (!process.env.LOVABLE_API_KEY) {
+    if (!process.env["LOVABLE_API_KEY"]) {
       return { ok: false, error: "An AI API connection is required. No AI provider is configured for this app, so no results can be generated." };
     }
     const { generateResponse, GatewayError } = await import("@lovable.dev/ai-gateway");
